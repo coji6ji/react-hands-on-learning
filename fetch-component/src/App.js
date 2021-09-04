@@ -3,7 +3,7 @@ import SearchForm from './SearchForm'
 import GitHubUser from './GitHubUser'
 
 export default function App() {
-  const [login, setLogin] = useState('user_name')
+  const [login, setLogin] = useState('coji6ji')
   return (
     <>
       <SearchForm value={login} onSearch={setLogin} />

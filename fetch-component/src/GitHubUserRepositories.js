@@ -7,7 +7,11 @@ export default function GitHubUserRepositories({ login, onSelect = f => f }) {
     <Fetch
       uri={`https://api.github.com/users/${login}/repos`}
       renderSuccess={({ data }) => (
-        <GitHubUserRepositoryMenu repositories={data} onSelect={onSelect} />
+        <GitHubUserRepositoryMenu
+          login={login}
+          repositories={data}
+          onSelect={onSelect}
+        />
       )}
     />
   )
