@@ -1,13 +1,17 @@
 import React, { useEffect } from 'react'
-import GitHubUserRepositoryReadme from './GitHubUserRepositoryReadme'
 import { useIterator } from './hooks'
 
 export default function GitHubUserRepositoryMenu({
-  login,
   repositories,
+  selected,
   onSelect = f => f,
 }) {
-  const [{ name }, previous, next] = useIterator(repositories)
+  const [{ name }, previous, next] = useIterator(
+    repositories,
+    selected
+      ? repositories.findIndex(repository => repository.name === selected)
+      : undefined
+  )
 
   useEffect(() => {
     if (!name) return
@@ -21,7 +25,6 @@ export default function GitHubUserRepositoryMenu({
         <p>{name}</p>
         <button onClick={next}>&gt;</button>
       </div>
-      <GitHubUserRepositoryReadme login={login} repository={name} />
     </>
   )
 }

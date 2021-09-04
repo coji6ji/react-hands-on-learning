@@ -1,6 +1,5 @@
 import React from 'react'
 import Fetch from './Fetch'
-import GitHubUserRepositories from './GitHubUserRepositories'
 
 export default function GitHubUser({ login }) {
   return (
@@ -20,10 +19,6 @@ function GitHubUserDetail({ data }) {
         {data.name && <p>{data.name}</p>}
         {data.location && <p>{data.location}</p>}
       </div>
-      <GitHubUserRepositories
-        login={data.login}
-        onSelect={repoName => console.log(`${repoName} selected`)}
-      />
     </div>
   )
 }
